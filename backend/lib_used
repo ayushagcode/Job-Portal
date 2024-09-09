@@ -1,0 +1,12 @@
+bcrypt
+cloudinary
+cookie-parser
+cors - used to connect frontend and backend
+dotenv
+express - 
+express-fileupload
+jsonwebtoken - jwt token ke liye
+mongoose
+node-cron - automation used for scheduling 
+modemailer - also node-cron used for 
+validator - 
