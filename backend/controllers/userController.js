@@ -131,11 +131,12 @@ export const updateProfile = catchAsyncErrors(async(req,res,next)=>{
   const {firstNiche,secondNiche,thirdNiche} = newUserData.niches;
 
   if(req.user.role === "Job Seeker" && (!firstNiche || !secondNiche || !thirdNiche)){
-    return next(new ErrorHandler("Please provide all your preffered job niches.",400)
+    return next(new ErrorHandler("Please provide all your preferred job niches.",400)
   );
   }
   if(req.files){
     const {resume} = req.files;
+    // or
     // const resume = req.files.resume;
     if(resume){
       const currentResumeId = req.user.public_id;

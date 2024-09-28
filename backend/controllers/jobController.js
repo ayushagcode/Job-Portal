@@ -16,8 +16,8 @@ export const postJob = catchAsyncErrors(async(req,res,next)=>{
     hiringMultipleCandidates, 
     personalWebsiteTitle, 
     personalWebsiteUrl,
-    jobNiche, 
-    newsLetterSent } = req.body;
+    jobNiche 
+    } = req.body;
 
     if(
     !title ||
@@ -33,7 +33,8 @@ export const postJob = catchAsyncErrors(async(req,res,next)=>{
     ){
         return next(new ErrorHandler("Please provide full job details.",400));
     }
-    if((personalWebsiteTitle && !personalWebsiteUrl) ||(!personalWebsiteTitle && personalWebsiteUrl)){
+    if((personalWebsiteTitle && !personalWebsiteUrl) ||
+       (!personalWebsiteTitle && personalWebsiteUrl)){
         return next(
             new ErrorHandler(
                 "Provide both the website url and title, or leave both blank.",
@@ -58,10 +59,10 @@ export const postJob = catchAsyncErrors(async(req,res,next)=>{
     }, 
     jobNiche, 
     postedBy
-    })
+    });
     res.status(201).json({
         success:true,
-        message:"Job posted successfully.",
-        job
-    })
-})
+        message:"Job posted successfully!!",
+        job,
+    });
+});
